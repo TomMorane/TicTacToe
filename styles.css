@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px;
+}
+
+.item {
+  background-color: orange;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.first-row {
+  /*   background-color: pink; */
+}
+
+.last-column {
+  /*   background-color: lightblue; */
+}
+
+body {
+  background-image: url(https://img.freepik.com/premium-photo/wood-background-texture_124507-6931.jpg?w=2000);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+}
+
+/* .title {
+  background-image: url(https://img.freepik.com/premium-photo/wood-background-texture_124507-6931.jpg?w=2000);
+} */
+
+u {
+  /* import my font style magnific chaos */
+  font-family: 'Magnific Chaos', cursive;
+}

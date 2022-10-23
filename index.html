@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='script.js' defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div class="title flex justify-center p-10 text-6xl"><u
+            class="p-6 0 text-black font-bold bg-yellow-900/40 rounded-full">Tic Tac
+            Toe</u>
+    </div>
+    <!-- title  -->
+
+    <div class="header flex justify-center space-x-4 p-5">
+
+        <div class="playersName w-min  justify-center">
+            <div class="flex flex-col ">
+                <label for="firstPlayer "><span class="flex justify-center text-2xl">Player One : </span></label>
+                <input type="text" id="first_name"
+                    class="border-4 placeholder-sky-700 text-xl rounded-full border-sky-700 bg-sky-200 p-2"
+                    placeholder="Write here" required>
+            </div>
+            <label for="secondPlayer"><span class="flex justify-center text-2xl">Player Two :</span></label>
+            <input type="text" id="first_name"
+                class="border-4 text-xl placeholder-sky-700 rounded-full border-sky-700 bg-sky-200 p-2"
+                placeholder="Write here">
+
+
+        </div>
+        <button type="submit" class="startGame bg-green-600 p-5 text-2xl rounded-3xl text-green-100"
+            onclick="startGame()">Start
+            Game</button>
+        <button class="resetGame bg-red-700 p-5 text-2xl rounded-3xl text-red-100" onclick="resetGame()">Reset
+            Game</button>
+
+    </div>
+    <!-- create a button to start the Game -->
+
+
+    <div class="flex flex-col justify-center items-center m-3">
+        <div class=" text-2xl text-lime-900 m-3 border-4 border-lime-300 bg-lime-100 p-5 rounded-xl" id="playerXO">Press
+            Start Game to begin
+        </div>
+        <!-- create a div to show which player's turn it is -->
+
+        <div class="winningMessage" id="winningMessage">
+            <div id="winningMessageText"></div>
+
+        </div>
+        <!-- Winning winningMessage -->
+
+        <div class="board container justify-center" id="board" onclick="playGame()">
+            <div class="item first-row flex justify-center items-center" data-cell></div>
+            <div class="item first-row flex justify-center items-center" data-cell></div>
+            <div class="item first-row last-column flex justify-center items-center" data-cell></div>
+            <div class="item flex justify-center items-center" data-cell></div>
+            <div class="item flex justify-center items-center" data-cell></div>
+            <div class="item last-column flex justify-center items-center" data-cell></div>
+            <div class="item flex justify-center items-center" data-cell></div>
+            <div class="item flex justify-center items-center " data-cell></div>
+            <div class="item last-column flex justify-center items-center" data-cell></div>
+        </div>
+        <!-- create 9 boxes for the game -->
+
+
+
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
