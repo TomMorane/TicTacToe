@@ -30,7 +30,6 @@ let winConditions = [
   [cell3, cell5, cell7],
 ];
 // create an array of all possible win conditions
-console.log(winConditions[1]);
 
 // use the array of all possible win conditions to check if any of them are true
 
@@ -108,7 +107,6 @@ function resetGame() {
 function playGame() {
   if (gameStarted === true && gameOver === false) {
     if (playerOne === true && playerTwo === false) {
-      console.log('player 1 played');
       this.innerHTML = 'X';
       playerOne = false;
       playerTwo = true;
@@ -117,7 +115,6 @@ function playGame() {
       this.removeEventListener('click', playGame);
       checkWin();
     } else if (playerOne === false && playerTwo === true) {
-      console.log('player 2 played');
       this.innerHTML = 'O';
       player = "It's Player 1 turn";
       document.getElementById('playerXO').innerHTML = player;
@@ -126,7 +123,6 @@ function playGame() {
       this.removeEventListener('click', playGame);
       checkWin();
     } else {
-      console.log('no');
       playerOne = true;
       playerTwo = false;
       this.innerHTML = 'X';
