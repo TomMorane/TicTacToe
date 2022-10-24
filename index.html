@@ -14,7 +14,7 @@
 <body>
 
     <div class="title flex justify-center p-10 text-6xl"><u
-            class="p-6 0 text-black font-bold bg-yellow-900/40 rounded-full">Tic Tac
+            class="p-6 0 text-black font-bold bg-yellow-900/20 rounded-full">Tic Tac
             Toe</u>
     </div>
     <!-- title  -->
@@ -23,12 +23,15 @@
 
         <div class="playersName w-min  justify-center">
             <div class="flex flex-col ">
-                <label for="firstPlayer "><span class="flex justify-center text-2xl">Player One : </span></label>
+                <label for="firstPlayer "><span class="playerOneScoreNumber flex justify-center text-2xl"
+                        id="playerOneScoreNumber"> Player One :
+                    </span></label>
                 <input type="text" id="first_name"
                     class="border-4 placeholder-sky-700 text-xl rounded-full border-sky-700 bg-sky-200 p-2"
                     placeholder="Write here" required>
             </div>
-            <label for="secondPlayer"><span class="flex justify-center text-2xl">Player Two :</span></label>
+            <label for="secondPlayer"><span class=" flex justify-center text-2xl " id="playerTwoScoreNumber">Player Two
+                    :</span></label>
             <input type="text" id="first_name"
                 class="border-4 text-xl placeholder-sky-700 rounded-full border-sky-700 bg-sky-200 p-2"
                 placeholder="Write here">
@@ -57,16 +60,16 @@
         </div>
         <!-- Winning winningMessage -->
 
-        <div class="board container justify-center" id="board" onclick="playGame()">
-            <div class="item first-row flex justify-center items-center" data-cell></div>
-            <div class="item first-row flex justify-center items-center" data-cell></div>
-            <div class="item first-row last-column flex justify-center items-center" data-cell></div>
-            <div class="item flex justify-center items-center" data-cell></div>
-            <div class="item flex justify-center items-center" data-cell></div>
-            <div class="item last-column flex justify-center items-center" data-cell></div>
-            <div class="item flex justify-center items-center" data-cell></div>
-            <div class="item flex justify-center items-center " data-cell></div>
-            <div class="item last-column flex justify-center items-center" data-cell></div>
+        <div class="board container justify-center" id="board">
+            <div class="item cell1 first-row flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell2 first-row flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell3 first-row last-column flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell4 flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell5 flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell6 last-column flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell7 flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell8 flex justify-center items-center text-6xl" data-cell></div>
+            <div class="item cell9 last-column flex justify-center items-center text-6xl" data-cell></div>
         </div>
         <!-- create 9 boxes for the game -->
 

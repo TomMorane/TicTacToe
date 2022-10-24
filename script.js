@@ -1,98 +1,156 @@
-let player = 'Click here to start the game';
-let playerOne = 'X';
-let playerTwo = 'O';
+let player = '';
+let playerOne = false;
+let playerTwo = false;
 let gameStarted = false;
 let gameOver = false;
+let result = false;
+let playerOneScore = 1;
+let playerTwoScore = 1;
+let displayPlayerOneScore = '';
+let displayPlayerTwoScore = '';
+
+const cell1 = document.querySelector('.cell1');
+const cell2 = document.querySelector('.cell2');
+const cell3 = document.querySelector('.cell3');
+const cell4 = document.querySelector('.cell4');
+const cell5 = document.querySelector('.cell5');
+const cell6 = document.querySelector('.cell6');
+const cell7 = document.querySelector('.cell7');
+const cell8 = document.querySelector('.cell8');
+const cell9 = document.querySelector('.cell9');
+
 let winConditions = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7],
+  [cell1, cell2, cell3],
+  [cell4, cell5, cell6],
+  [cell7, cell8, cell9],
+  [cell1, cell4, cell7],
+  [cell2, cell5, cell8],
+  [cell3, cell6, cell9],
+  [cell1, cell5, cell9],
+  [cell3, cell5, cell7],
 ];
 // create an array of all possible win conditions
+console.log(winConditions[1]);
+
+// use the array of all possible win conditions to check if any of them are true
+
+function checkWin() {
+  winConditions.forEach((condition) => {
+    if (
+      condition[0].innerHTML === 'X' &&
+      condition[1].innerHTML === 'X' &&
+      condition[2].innerHTML === 'X'
+    ) {
+      player = 'Player 1 Wins';
+      document.getElementById('playerXO').innerHTML = player;
+      gameOver = true;
+      displayPlayerOneScore = `Player One Score : ${playerOneScore}`;
+
+      playerOneScore++;
+      document.getElementById('playerOneScoreNumber').innerHTML =
+        displayPlayerOneScore;
+    } else if (
+      condition[0].innerHTML === 'O' &&
+      condition[1].innerHTML === 'O' &&
+      condition[2].innerHTML === 'O'
+    ) {
+      player = 'Player 2 Wins';
+      document.getElementById('playerXO').innerHTML = player;
+      gameOver = true;
+      displayPlayerTwoScore = `Player Two Score : ${playerTwoScore}`;
+      playerTwoScore++;
+      document.getElementById('playerTwoScoreNumber').innerHTML =
+        displayPlayerTwoScore;
+    } else if (
+      cell1.innerHTML != '' &&
+      cell2.innerHTML != '' &&
+      cell3.innerHTML != '' &&
+      cell4.innerHTML != '' &&
+      cell5.innerHTML != '' &&
+      cell6.innerHTML != '' &&
+      cell7.innerHTML != '' &&
+      cell8.innerHTML != '' &&
+      cell9.innerHTML != ''
+    ) {
+      player = 'Draw';
+      document.getElementById('playerXO').innerHTML = player;
+      gameOver = true;
+    }
+  });
+}
 
 function startGame() {
   if (gameStarted === false) {
     gameStarted = true;
     gameOver = false;
-    player = "It's number 1 turn";
+    playerOne = true;
+    player = "It's Player 1 turn";
     document.getElementById('playerXO').innerHTML = player;
     document.querySelectorAll('.item').forEach((item) => (item.innerHTML = ''));
+    cell1.addEventListener('click', playGame);
+    cell2.addEventListener('click', playGame);
+    cell3.addEventListener('click', playGame);
+    cell4.addEventListener('click', playGame);
+    cell5.addEventListener('click', playGame);
+    cell6.addEventListener('click', playGame);
+    cell7.addEventListener('click', playGame);
+    cell8.addEventListener('click', playGame);
+    cell9.addEventListener('click', playGame);
   }
 }
 
 function resetGame() {
   document.querySelectorAll('.item').forEach((item) => (item.innerHTML = ''));
-  document.getElementById('playerXO').innerHTML = 'press start Game to begin';
+  document.getElementById('playerXO').innerHTML = 'Press Start Game to begin';
   gameStarted = false;
 }
 
 function playGame() {
-  if (gameStarted === true) {
-    console.log('hi');
+  if (gameStarted === true && gameOver === false) {
+    if (playerOne === true && playerTwo === false) {
+      console.log('player 1 played');
+      this.innerHTML = 'X';
+      playerOne = false;
+      playerTwo = true;
+      player = "It's Player 2 turn";
+      document.getElementById('playerXO').innerHTML = player;
+      this.removeEventListener('click', playGame);
+      checkWin();
+    } else if (playerOne === false && playerTwo === true) {
+      console.log('player 2 played');
+      this.innerHTML = 'O';
+      player = "It's Player 1 turn";
+      document.getElementById('playerXO').innerHTML = player;
+      playerOne = true;
+      playerTwo = false;
+      this.removeEventListener('click', playGame);
+      checkWin();
+    } else {
+      console.log('no');
+      playerOne = true;
+      playerTwo = false;
+      this.innerHTML = 'X';
+      playerOne = false;
+      playerTwo = true;
+      player = "It's Player 2 turn";
+      document.getElementById('playerXO').innerHTML = player;
+      this.removeEventListener('click', playGame);
+      checkWin();
+    }
   }
 }
 
-// play the game when a square is clicked
-// document
-//   .querySelectorAll('.item')
-//   .forEach((item) => item.addEventListener('click', startGame));
+// const counterCreator = () => {
+//   let count = 0;
+//   return () => {
+//     console.log(count);
+//     count++;
+//   };
+// };
 
-// switch (playerOne) {
-//   case 'X':
-//     player = "It's player 1 turn";
-//     document.getElementById('playerXO').innerHTML = player;
-//     break;
-//   case 'O':
-//     player = "It's player 2 turn";
-//     document.getElementById('playerXO').innerHTML = player;
-//     break;
-// }
-// put an X when the square is clicked
+// const counter = counterCreator();
 
-// put an O when the square is clicked
-// check if the game is over
-// check if the game is a draw
-// check if the game is a win
-// check if the game is a win for player X
-// check if the game is a win for player O
-
-// const playerX = 'x';
-// const playerO = '0';
-// const winPossibilited = [
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [0, 4, 8],
-//   [2, 4, 6],
-// ];
-
-// const cellElements = document.querySelectorAll('[data-cell]');
-// const boardElement = document.getElementById('board');
-// const winningMessageElement = document.getElementById('winningMessage');
-// const resetGame = document.getElementById('resetGame');
-// const winningMessageTextElement = document.getElementById('winningMessageText');
-// let isPlayer_O_Turn = false;
-
-// startGame();
-
-// resetGame.addEventListener('click', startGame);
-
-// function startGame() {
-//   isPlayer_O_Turn = false;
-//   cellElements.forEach((cell) => {
-//     cell.classList.remove(playerX);
-//     cell.classList.remove(playerO);
-//     cell.removeEventListener('click', handleCellClick);
-//     cell.addEventListener('click', handleCellClick, { once: true });
-//   });
-//   setBoardHoverClass();
-//   winningMessageElement.classList.remove('show');
-// }
+// counter(); // 0
+// counter(); // 1
+// counter(); // 2
+// counter(); // 3
